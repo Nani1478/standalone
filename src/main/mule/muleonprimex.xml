@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3c19e384-ae06-4f10-a798-e8c995f598d3" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="muleonprimexFlow" doc:id="21a604dc-b64b-4f1d-b3db-7f487769d82a" >
+		<http:listener doc:name="Listener" doc:id="44de7cd2-983b-4b55-9e04-6e40e0188835" config-ref="HTTP_Listener_config" path="/mop"/>
+		<logger level="INFO" doc:name="logs" doc:id="43d38254-85e1-4390-8841-e4bc3f2ec3ae" message="1stone"/>
+		<set-payload value="#['deployed locally (on Premises)']" doc:name="Set Payload" doc:id="60bc566f-b771-4f4c-b78a-591cf88e6d2e" />
+	</flow>
+</mule>
